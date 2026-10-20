@@ -28,21 +28,38 @@
     else a.onclick = e => { e.preventDefault(); toast(`Bientôt disponible. En attendant : ${L.email}`); };
   });
 
-  /* ---------- Menu ---------- */
-  $('#menu-sub').innerHTML = D.univers.map(u => `<li><a href="realisation.html?u=${u.id}">${esc(u.titre)}</a></li>`).join('');
-  const menu = $('#menu'), btn = $('#menu-btn');
-  const setMenu = open => {
-    btn.setAttribute('aria-expanded', open);
-    btn.firstChild.textContent = open ? 'Fermer ' : 'Menu ';
-    if (open) {
-      menu.hidden = false; window.__lenis?.stop();
-      if (anim) G.fromTo('.menu-list li, .menu-side > *', { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: .7, ease: 'expo.out', stagger: .05 });
-      $('a', menu).focus();
-    } else { menu.hidden = true; window.__lenis?.start(); }
+  /* ---------- Menu : onglets de profil, façon réseau social ---------- */
+  const ico = d => `<svg viewBox="0 0 24 24" aria-hidden="true">${d}</svg>`;
+  const T = {
+    apropos: ['À propos', ico('<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/>')],
+    formation: ['Parcours', ico('<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5"/>')],
+    experiences: ['Expériences', ico('<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/>')],
+    realisations: ['Projets', ico('<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>')],
+    competences: ['Compétences', ico('<path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/>')],
+    contact: ['Contact', ico('<path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2-5.4A8.5 8.5 0 1 1 21 11.5Z"/>')]
   };
-  btn.addEventListener('click', () => setMenu(btn.getAttribute('aria-expanded') !== 'true'));
-  menu.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
-  addEventListener('keydown', e => { if (e.key === 'Escape' && !menu.hidden) { setMenu(false); btn.focus(); } });
+  const tab = (id, cls = '') => `<a href="index.html#${id}" data-tab="${id}"${cls ? ` class="${cls}"` : ''}>${T[id][1]}<span>${T[id][0]}</span></a>`;
+  const SECTIONS = ['formation', 'experiences', 'realisations', 'competences', 'contact'];
+  const ptab = $('#tabs');
+  ptab.innerHTML = `<a class="pt-logo" href="index.html" aria-label="Marie Claire Diouf, accueil">MC<i class="dot" aria-hidden="true"></i></a>
+    <div class="pt-list">${tab('apropos', 'pt-desk')}${SECTIONS.map(id => tab(id)).join('')}<a class="pt-mob" data-lien="cv" href="#">${ico('<path d="M12 4v11M7 10l5 5 5-5M5 20h14"/>')}<span>CV</span></a></div>
+    <a class="pt-cv" data-lien="cv" href="#">Mon CV <span aria-hidden="true">↓</span></a>`;
+  if ($('#intro-tabs')) $('#intro-tabs').innerHTML = SECTIONS.map(id => tab(id)).join('');
+  const setTab = id => $$('[data-tab]').forEach(a => a.toggleAttribute('aria-current', a.dataset.tab === id));
+  if (page === 'univers') { setTab('realisations'); ptab.classList.add('on'); }
+  else {
+    // La barre apparaît en haut une fois le profil d'accueil dépassé
+    const intro = $('.intro');
+    const showBar = () => ptab.classList.toggle('on', scrollY > intro.offsetHeight - innerHeight * .6);
+    addEventListener('scroll', showBar, { passive: true }); showBar();
+    const vis = new Map(), ids = ['apropos', ...SECTIONS, 'avis'];
+    const io = new IntersectionObserver(en => {
+      en.forEach(e => vis.set(e.target.id, e.isIntersecting));
+      const cur = ids.filter(id => vis.get(id)).pop();
+      setTab(cur === 'avis' ? 'competences' : cur || '');
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    ids.forEach(id => { const s = document.getElementById(id); if (s) io.observe(s); });
+  }
 
   /* ---------- Défilement fluide, progression, curseur ---------- */
   if (anim && window.Lenis) {
@@ -223,13 +240,13 @@
         .from('.intro-kicker', { y: 20, opacity: 0, duration: .7 }, '-=.5')
         .from('.intro-name .line > span', { yPercent: 105, duration: 1.2, ease: 'expo.out', stagger: .12 }, '-=.5')
         .from('.verif', { scale: 0, rotate: -90, duration: .6, ease: 'back.out(3)' }, '-=.6')
-        .from('.intro-handle, .intro-stats li, .intro-actions > *, .intro-scroll', { y: 20, opacity: 0, duration: .6, stagger: .07 }, '-=.6')
+        .from('.intro-handle, .intro-stats li, .intro-actions > *, .intro-scroll, .intro-tabs a',{ y: 20, opacity: 0, duration: .6, stagger: .07 }, '-=.6')
         .from('.float-notif', { scale: .6, opacity: 0, y: 30, duration: .7, ease: 'back.out(2)', stagger: .35 }, '-=.2');
       $$('.float-notif').forEach((n, k) => G.to(n, { y: k % 2 ? 12 : -12, duration: 2.6 + k * .4, ease: 'sine.inOut', yoyo: true, repeat: -1, delay: 2 + k * .3 }));
       G.timeline({ scrollTrigger: { trigger: '.intro', start: 'top top', end: 'bottom bottom', scrub: .6 } })
         .to('.intro-profile', { scale: .86, opacity: 0, ease: 'power1.in' }, 0)
         .to('.f1, .f3', { x: -160, opacity: 0 }, 0).to('.f2, .f4', { x: 160, opacity: 0 }, 0)
-        .to('.intro-scroll', { opacity: 0 }, 0)
+        .to('.intro-scroll, .intro-tabs', { opacity: 0, duration: .3 }, 0)
         .to('.intro-reveal', { scale: () => Math.hypot(innerWidth, innerHeight) / 10, ease: 'power2.in', duration: .85 }, .15);
 
       // Manifeste : chaque verbe s'allume, sa notification apparaît
