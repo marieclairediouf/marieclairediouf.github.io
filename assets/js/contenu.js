@@ -240,7 +240,7 @@ window.MC = {
         { titre: "Journaliste sport", contexte: "Projets personnels", role: "Accréditée presse, au bord du terrain",
           texte: "En parallèle de mes études, j'ai obtenu des accréditations de journaliste sportive pour couvrir des matchs au bord du terrain, et je tiens Also Foot, mon blog consacré au football.",
           chiffres: ["Accréditations presse", "1 blog"],
-          images: [[MP + "journalisme--cad62e89-3a00-4aa5-b895-cd67-46.jpg", "Au bord du terrain"], [MP + "journalisme--img-3617-17.jpg", "Mon accréditation presse"], [MP + "journalisme--fc9ed236-7df2-4504-9673-ceba-4f.jpg", "Avant le coup d'envoi"], [MP + "journalisme--img-4002-02.jpg", "Couverture de l'entraînement des joueurs de l'OGC Nice avant leur rencontre en Conference League"]],
+          images: [[MP + "journalisme--cad62e89-3a00-4aa5-b895-cd67-46.jpg", "Au bord du terrain lors du match AS Monaco – Stade de Reims, Ligue 1, 2022"], [MP + "journalisme--img-3617-17.jpg", "Mon accréditation presse pour AS Monaco – Stade de Reims, Ligue 1, 2022"], [MP + "journalisme--fc9ed236-7df2-4504-9673-ceba-4f.jpg", "Avant le coup d'envoi d'AS Monaco – Stade de Reims, Ligue 1, 2022"], [MP + "journalisme--img-4002-02.jpg", "Couverture de l'entraînement des joueurs de l'OGC Nice avant leur rencontre en Conference League"]],
           liens: [["Also Foot, mon blog", "https://miclaire2000.wixsite.com/also-football"]] },
         { titre: "Ballon Rond Magazine", contexte: "Freelance · 2021 → 2022", role: "Rubrique Rétro / Insolite",
           texte: "Replonger dans l'histoire du foot pour raconter un trophée, un match ou un personnage qui a marqué son époque, au rythme du bouclage d'un mensuel.",
