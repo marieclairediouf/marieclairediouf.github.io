@@ -102,10 +102,9 @@ ul, ol { list-style: none; }
 .intro-name .line:last-child { position: relative; display: inline-block; overflow: visible; }
 .notif { position: absolute; top: .5em; right: -1.7em; width: 1.9em; height: 1.9em; border-radius: 50%; background: var(--rose); color: var(--bordeaux); font-family: var(--f-texte); font-style: normal; font-weight: 800; font-size: .15em; display: grid; place-items: center; line-height: 1; box-shadow: 0 0 0 .25em var(--bordeaux); }
 .intro-role { margin-top: 26px; font-weight: 700; font-size: clamp(14px, 1.4vw, 17px); letter-spacing: 3.5px; text-transform: uppercase; color: var(--rose-clair); }
-.intro-scroll { margin-top: 26px; font-size: 14px; font-weight: 500; letter-spacing: 1px; color: var(--rose-clair); opacity: .85; }
+.intro-scroll { position: absolute; left: 0; right: 0; bottom: clamp(12px, 3vh, 28px); z-index: 2; font-size: 14px; font-weight: 500; letter-spacing: 1px; color: var(--rose-clair); opacity: .85; }
 .intro-scroll span { display: inline-block; animation: nudge 1.8s ease-in-out infinite; }
 @keyframes nudge { 50% { transform: translateY(5px); } }
-@media (max-height: 640px) { .intro-scroll { display: none; } }
 .intro-reveal { position: absolute; left: 50%; top: 50%; width: 20px; height: 20px; margin: -10px 0 0 -10px; border-radius: 50%; background: var(--creme); transform: scale(0); pointer-events: none; }
 
 /* ---------- 2. Manifeste ---------- */
@@ -423,8 +422,18 @@ ul, ol { list-style: none; }
   .f3 { bottom: 9%; left: 4%; max-width: 220px; font-size: 12.5px; }
   .float-notif i { width: 32px; height: 32px; font-size: 13px; }
 }
-@media (max-width: 560px) and (max-height: 780px) { .f3 { display: none; } }
-@media (max-width: 560px) { .f2 { top: 11%; } .f3 { bottom: 1.5%; } .intro-actions .btn { min-width: 0; flex: 1; } .intro-actions { width: 100%; max-width: 340px; } }
+/* Le profil s'adapte aussi à la hauteur de l'écran : sous la barre de menu, au-dessus de « Faites défiler » */
+.intro-sticky { padding-top: clamp(88px, 12vh, 104px); padding-bottom: clamp(60px, 11vh, 90px); }
+.intro-avatar { width: clamp(60px, min(10vw, 12.5vh), 132px); height: clamp(60px, min(10vw, 12.5vh), 132px); margin-bottom: clamp(14px, 2.4vh, 22px); }
+.intro-kicker { font-size: clamp(18px, min(2.6vw, 4vh), 34px); margin-bottom: 0; }
+.intro-name { font-size: clamp(44px, min(9.5vw, 12.5vh), 158px); }
+.intro-handle { margin-top: clamp(6px, 1.6vh, 18px); }
+.intro-stats { margin: clamp(6px, 1.8vh, 18px) 0 clamp(10px, 2.2vh, 20px); }
+.intro-stats b { font-size: clamp(24px, min(3vw, 5vh), 42px); }
+.intro-actions .btn { padding-top: clamp(9px, 1.6vh, 13px); padding-bottom: clamp(9px, 1.6vh, 13px); }
+@media (max-width: 560px) { .f3 { display: none; } }
+@media (max-width: 960px) { .f2 { top: max(9%, 96px); } }
+@media (max-width: 560px) { .f2 { top: max(11%, 92px); } .intro-actions .btn { min-width: 0; flex: 1; } .intro-actions { width: 100%; max-width: 340px; } }
 
 /* ---------- Expériences : fil de publications ---------- */
 .xp-feed { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; max-width: 1040px; margin: 64px auto 0; padding-bottom: 80px; }
