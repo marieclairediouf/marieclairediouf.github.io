@@ -166,8 +166,6 @@
       if (d.open && anim) G.from($$('.xp-detail-in > *', d), { y: 14, opacity: 0, duration: .5, stagger: .04, ease: 'power2.out' });
       ST?.refresh();
     }));
-    const nbProjets = D.univers.reduce((n, u) => n + u.projets.length, 0);
-    if ($('#stat-projets')) $('#stat-projets').textContent = nbProjets;
 
     // Formation
     $('#diplomes').innerHTML = D.formations.map(f =>
@@ -188,7 +186,7 @@
 
     // Réalisations
     $('#hscroll').insertAdjacentHTML('beforeend', D.univers.map((u, i) =>
-      `<a class="ucard" href="realisation.html?u=${u.id}"><img src="${u.couverture}" alt="" loading="lazy"><span class="ucard-top"><span class="ucard-num"><span>${pad(i + 1)}</span></span><span class="ucard-count">${u.projets.length} projet${u.projets.length > 1 ? 's' : ''}</span></span><span class="ucard-body"><span class="ucard-hand">${esc(u.accroche)}</span><span class="ucard-title">${esc(u.titre)}</span><span class="ucard-go">Ouvrir <i aria-hidden="true">→</i></span></span></a>`).join('') + '<div class="hpanel-end"></div>');
+      `<a class="ucard" href="realisation.html?u=${u.id}"><img src="${u.couverture}" alt="" loading="lazy"><span class="ucard-top"><span class="ucard-num"><span>${pad(i + 1)}</span></span><span class="ucard-count">Quelques exemples</span></span><span class="ucard-body"><span class="ucard-hand">${esc(u.accroche)}</span><span class="ucard-title">${esc(u.titre)}</span><span class="ucard-go">Ouvrir <i aria-hidden="true">→</i></span></span></a>`).join('') + '<div class="hpanel-end"></div>');
 
     // Avis
     const avis = D.univers.flatMap(u => u.projets.filter(p => p.avis).map(p => ({ ...p.avis, projet: p.titre })));
@@ -299,6 +297,7 @@
     $('#u-num').textContent = `Réalisations · univers ${pad(i + 1)} / ${pad(D.univers.length)}`;
     $('#u-title').innerHTML = esc(u.titre).replace('&amp;', '<em>&amp;</em>');
     $('#u-intro').textContent = u.intro;
+    $('#u-index').insertAdjacentHTML('beforebegin', '<p class="u-sel">Quelques exemples, parmi beaucoup d\'autres</p>');
     const carrousel = g => `
       <figure class="car">
         <figcaption class="car-head"><span class="car-av" aria-hidden="true">MC</span><b>${esc(g.titre)}</b><span class="car-count"></span></figcaption>
