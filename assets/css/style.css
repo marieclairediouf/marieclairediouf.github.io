@@ -432,8 +432,8 @@ ul, ol { list-style: none; }
 .intro-stats b { font-size: clamp(24px, min(3vw, 5vh), 42px); }
 .intro-actions .btn { padding-top: clamp(9px, 1.6vh, 13px); padding-bottom: clamp(9px, 1.6vh, 13px); }
 @media (max-width: 560px) { .f3 { display: none; } }
-@media (max-width: 960px) { .f2 { top: max(9%, 96px); } }
-@media (max-width: 560px) { .f2 { top: max(11%, 92px); } .intro-actions .btn { min-width: 0; flex: 1; } .intro-actions { width: 100%; max-width: 340px; } }
+@media (max-width: 960px) { .f2 { top: 6%; } }
+@media (max-width: 560px) { .f2 { top: 4%; } .intro-actions .btn { min-width: 0; flex: 1; } .intro-actions { width: 100%; max-width: 340px; } }
 
 /* ---------- Expériences : fil de publications ---------- */
 .xp-feed { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; max-width: 1040px; margin: 64px auto 0; padding-bottom: 80px; }
@@ -559,4 +559,45 @@ a.une:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
   .galeries.multi .car:last-child:nth-child(odd) { width: 100%; }
   .reels { grid-template-columns: 1fr 1fr; gap: 10px; }
   .reel figcaption { font-size: 11px; }
+}
+
+/* ---------- Menu : onglets de profil, façon réseau social ---------- */
+.ptabs { position: fixed; top: 0; left: 0; right: 0; z-index: 110; display: flex; align-items: center; gap: 16px; height: 58px; padding: 0 var(--gutter); background: rgba(243, 234, 219, .92); backdrop-filter: blur(14px) saturate(1.2); -webkit-backdrop-filter: blur(14px) saturate(1.2); border-bottom: 1px solid rgba(122, 20, 24, .14); transform: translateY(-101%); transition: transform .5s var(--ease); }
+.ptabs.on { transform: none; }
+.pt-logo { position: relative; font-family: var(--f-display); font-size: 26px; line-height: 1; color: var(--bordeaux); text-decoration: none; }
+.pt-logo .dot { position: absolute; top: -2px; right: -9px; width: 7px; height: 7px; border-radius: 50%; background: var(--rose); }
+.pt-list { flex: 1; display: flex; justify-content: center; align-self: stretch; }
+.pt-list a, .intro-tabs a { position: relative; display: flex; align-items: center; gap: 8px; padding: 0 16px; font-weight: 700; font-size: 14px; letter-spacing: .3px; text-decoration: none; white-space: nowrap; transition: color .25s; }
+.pt-list a { color: var(--encre-douce); }
+.pt-list a:hover, .pt-list a[aria-current] { color: var(--bordeaux); }
+.pt-list svg, .intro-tabs svg { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linejoin: round; stroke-linecap: round; }
+.pt-list a::before, .intro-tabs a::before { content: ""; position: absolute; left: 12px; right: 12px; top: -1px; height: 2px; border-radius: 2px; background: currentColor; transform: scaleX(0); transition: transform .35s var(--ease); }
+.pt-list a[aria-current]::before, .pt-list a:hover::before, .intro-tabs a:hover::before { transform: scaleX(1); }
+.pt-cv { font-weight: 800; font-size: 14px; color: var(--bordeaux); text-decoration: none; padding: 9px 16px; border: 1.5px solid rgba(122, 20, 24, .35); border-radius: 999px; white-space: nowrap; transition: background .25s, color .25s; }
+.pt-cv:hover { background: var(--bordeaux); color: var(--creme); }
+.pt-mob { display: none !important; }
+
+/* La même rangée d'onglets, sous le profil d'accueil */
+.intro-tabs { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; display: flex; justify-content: center; height: 54px; border-top: 1px solid rgba(243, 234, 219, .2); }
+.intro-tabs a { color: var(--rose-clair); }
+.intro-tabs a:hover { color: var(--creme); }
+.intro-sticky { padding-top: clamp(20px, 5vh, 48px); padding-bottom: clamp(104px, 17vh, 140px); }
+.intro-scroll { bottom: calc(54px + clamp(10px, 2.6vh, 22px)); }
+
+@media (max-width: 760px) {
+  .ptabs { padding: 0 6px; }
+  .pt-logo, .pt-cv, .pt-desk { display: none !important; }
+  .pt-mob { display: flex !important; }
+  .pt-list { justify-content: space-around; }
+  .pt-list a, .intro-tabs a { flex-direction: column; justify-content: center; gap: 3px; padding: 0 4px; font-size: 10.5px; letter-spacing: 0; }
+  .pt-list svg, .intro-tabs svg { width: 21px; height: 21px; }
+  .pt-list a::before, .intro-tabs a::before { left: 6px; right: 6px; }
+  .intro-tabs { justify-content: space-around; height: 58px; padding-bottom: env(safe-area-inset-bottom); }
+  .intro-scroll { bottom: calc(58px + 14px + env(safe-area-inset-bottom)); }
+}
+@media (max-width: 560px) { .intro-avatar { width: clamp(76px, 12vh, 104px); height: clamp(76px, 12vh, 104px); } }/* Écrans bas : seules deux notifications, dans les coins du haut, pour ne pas toucher le profil */
+@media (min-width: 761px) and (max-height: 760px) {
+  .f3, .f4 { display: none; }
+  .f1, .f2 { top: 5%; max-width: 235px; font-size: 12.5px; }
+  .f1 { left: 2.5%; } .f2 { right: 2.5%; }
 }
