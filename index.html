@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Marie Claire Diouf · Communication digitale</title>
+<meta name="description" content="Le portfolio de Marie Claire Diouf, journaliste de formation spécialisée en communication digitale : réseaux sociaux, rédaction web, vidéo, design. Disponible pour un CDI.">
+<meta property="og:title" content="Marie Claire Diouf · J'écris. Je filme. Je publie.">
+<meta property="og:image" content="img/hero-objectif.jpg">
+<meta name="theme-color" content="#7A1418">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=tanker@400&f[]=gambetta@400,401,500,501&f[]=cabinet-grotesk@400,500,700,800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="accueil">
+
+<a class="skip" href="#contenu">Aller au contenu</a>
+<div class="progress" aria-hidden="true"><i></i></div>
+
+<header class="nav">
+  <a class="nav-logo" href="index.html" aria-label="Marie Claire Diouf, accueil"><span>MC</span><i class="dot" aria-hidden="true"></i></a>
+  <button class="nav-menu" id="menu-btn" aria-expanded="false" aria-controls="menu">Menu <span class="burger" aria-hidden="true"><i></i><i></i></span></button>
+</header>
+
+<nav class="menu" id="menu" aria-label="Menu principal" hidden>
+  <ol class="menu-list">
+    <li><a href="index.html#apropos"><small>01</small>À propos</a></li>
+    <li><a href="index.html#formation"><small>02</small>Formation</a></li>
+    <li><a href="index.html#experiences"><small>03</small>Expériences</a></li>
+    <li><a href="index.html#realisations"><small>04</small>Réalisations</a></li>
+    <li><a href="index.html#competences"><small>05</small>Compétences</a></li>
+    <li><a href="index.html#avis"><small>06</small>Avis</a></li>
+    <li><a href="index.html#contact"><small>07</small>Contact</a></li>
+  </ol>
+  <div class="menu-side">
+    <p class="menu-label">Réalisations</p>
+    <ul class="menu-sub" id="menu-sub"></ul>
+    <a class="btn btn-light" data-lien="cv" href="#">Télécharger mon CV</a>
+  </div>
+</nav>
+
+<main id="contenu">
+
+  <!-- 1. Intro : le profil -->
+  <section class="intro" aria-label="Accueil">
+    <div class="intro-sticky">
+      <div class="intro-profile">
+        <div class="intro-avatar"><span class="ring" aria-hidden="true"></span><img src="img/portrait.jpg" alt="Portrait de Marie Claire Diouf"><i class="live" aria-hidden="true">En ligne</i></div>
+        <p class="intro-kicker serif">Bienvenue sur le feed de</p>
+        <h1 class="intro-name"><span class="line">Marie Claire</span><span class="line">Diouf<svg class="verif" viewBox="0 0 24 24" aria-label="Profil vérifié" role="img"><path fill="currentColor" d="m12 1 2.6 2.2 3.4-.4.9 3.3 3 1.7-1.2 3.2 1.2 3.2-3 1.7-.9 3.3-3.4-.4L12 23l-2.6-2.2-3.4.4-.9-3.3-3-1.7L3.3 13 2.1 9.8l3-1.7.9-3.3 3.4.4Z"/><path d="m7.5 12.3 3 3 6-6.3" fill="none" stroke="#7A1418" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></h1>
+        <p class="intro-handle">@marieclaire_diouf · Journaliste <span aria-hidden="true">→</span> Communication digitale</p>
+        <ul class="intro-stats">
+          <li><b id="stat-projets">17</b><span>projets</span></li>
+          <li><b>243,1 k</b><span>vues</span></li>
+          <li><b>5</b><span>langues</span></li>
+        </ul>
+        <div class="intro-actions">
+          <button class="btn btn-light" id="follow" aria-pressed="false"><span>Suivre</span></button>
+          <a class="btn btn-ghost-light" href="#contact">Message</a>
+        </div>
+        <p class="intro-scroll">Faites défiler pour entrer <span aria-hidden="true">↓</span></p>
+      </div>
+      <div class="floats" aria-hidden="true">
+        <p class="float-notif f1"><i>♥</i><span><b>243,1 k vues</b> sur Instagram</span></p>
+        <p class="float-notif f2"><i>CC</i><span><b>Cécile Casciano</b> a commenté : « Sérieuse, appliquée »</span></p>
+        <p class="float-notif f3"><i>+</i><span><b>+932 abonnés</b> sur LinkedIn</span></p>
+        <p class="float-notif f4"><i>▶</i><span><b>Nouvelle publication</b> · Documentaire handisport</span></p>
+      </div>
+      <div class="hearts" id="hearts" aria-hidden="true"></div>
+      <div class="intro-reveal" aria-hidden="true"></div>
+    </div>
+  </section>
+  <!-- 2. Manifeste -->
+  <section class="manifeste" aria-label="Ce que je fais">
+    <div class="manifeste-sticky">
+      <ol class="manifeste-list" id="manifeste"></ol>
+      <p class="hand manifeste-note">c'est moi, derrière l'objectif ↘</p>
+      <img class="manifeste-photo" src="img/hero-objectif.jpg" alt="Marie Claire derrière son appareil photo, l'objectif tourné vers nous">
+    </div>
+  </section>
+
+  <!-- 3. À propos -->
+  <section class="wrap apropos" id="apropos" aria-labelledby="apropos-title">
+    <div class="apropos-visuel">
+      <div class="disc" aria-hidden="true"></div>
+      <div class="story-ring big"><img src="img/portrait.jpg" alt="Portrait de Marie Claire Diouf"></div>
+      <p class="status-pill"><i aria-hidden="true"></i>Disponible dès maintenant</p>
+      <p class="hand apropos-hand">tout le monde dit MC</p>
+    </div>
+    <div class="apropos-texte">
+      <p class="eyebrow">01 · À propos</p>
+      <h2 id="apropos-title" class="titre">Hey, moi c'est <em>MC</em></h2>
+      <p class="reveal-words" id="apropos-texte"></p>
+      <div class="apropos-cta">
+        <a class="btn" href="#contact">M'écrire</a>
+        <a class="btn btn-outline" data-lien="cv" href="#">Mon CV</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Formation -->
+  <section class="formation" id="formation" aria-labelledby="form-title">
+    <div class="wrap">
+      <p class="eyebrow center">02 · Formation</p>
+      <h2 class="titre center" id="form-title">Parcours <em>académique</em></h2>
+      <ol class="diplomes" id="diplomes"></ol>
+    </div>
+  </section>
+  <!-- 4. Chiffres -->
+  <section class="chiffres" aria-labelledby="chiffres-title">
+    <div class="wrap">
+      <h2 class="hand chiffres-title" id="chiffres-title">quelques chiffres, en vrai</h2>
+      <dl class="chiffres-grid" id="chiffres"></dl>
+    </div>
+  </section>
+
+  <!-- 5. Expériences -->
+  <section class="wrap parcours" id="experiences" aria-labelledby="exp-title">
+    <p class="eyebrow center">03 · Expériences</p>
+    <h2 class="titre center" id="exp-title">Mon fil <em>pro</em></h2>
+    <div class="xp-feed" id="fil"></div>
+  </section>
+  <!-- 6. Réalisations (défilement horizontal) -->
+  <section class="realisations" id="realisations" aria-labelledby="real-title">
+    <div class="hscroll">
+      <div class="hscroll-track" id="hscroll">
+        <div class="hpanel hpanel-intro">
+          <p class="eyebrow light">04 · Réalisations</p>
+          <h2 class="titre light" id="real-title">Quatre façons de <em>raconter</em></h2>
+          <p class="light-text">Chaque univers est une page : ouvrez celui qui vous intéresse.</p>
+          <p class="hand light-hand">faites défiler →</p>
+        </div>
+        <!-- cartes injectées -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Compétences, logiciels, langues -->
+  <section class="competences" id="competences" aria-labelledby="comp-title">
+    <div class="wrap">
+      <p class="eyebrow center">05 · Compétences</p>
+      <h2 class="titre center" id="comp-title">Ma boîte <em>à outils</em></h2>
+
+      <h3 class="sous-titre"><span>01</span>Savoir-faire</h3>
+      <div class="skills-grid" id="skills"></div>
+
+      <h3 class="sous-titre"><span>02</span>Logiciels</h3>
+      <div class="soft-groups" id="logiciels"></div>
+
+      <h3 class="sous-titre"><span>03</span>Langues</h3>
+      <ul class="langs" id="langues"></ul>
+    </div>
+  </section>
+
+  <!-- 8. Avis -->
+  <section class="wrap avis" id="avis" aria-labelledby="avis-title">
+    <p class="eyebrow center">06 · Avis</p>
+    <h2 class="titre center" id="avis-title">Ils ont <em>commenté</em></h2>
+    <div class="avis-grid" id="avis-grid"></div>
+  </section>
+
+  <!-- 9. Contact -->
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="wrap contact-grid">
+      <div>
+        <p class="eyebrow light">07 · Contact</p>
+        <h2 class="contact-title" id="contact-title">On<br>s'écrit ?</h2>
+        <p class="light-text">Je cherche un CDI en communication digitale. Disponible dès maintenant, en France et à l'étranger.</p>
+        <div class="contact-links" id="contact-links"></div>
+      </div>
+      <div class="dm">
+        <div class="dm-head"><span class="story-ring small"><img src="img/portrait.jpg" alt=""></span><p><b>Marie Claire Diouf</b><small><i aria-hidden="true"></i>en ligne</small></p></div>
+        <div class="dm-log" id="dm-log" aria-live="polite"></div>
+        <form class="dm-form" id="dm-form">
+          <label class="sr-only" for="dm-input">Votre message à Marie Claire</label>
+          <textarea id="dm-input" rows="1" placeholder="Écrivez votre message…" required></textarea>
+          <button type="submit" aria-label="Envoyer le message"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4Z"/></svg></button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>Marie Claire Diouf · Portfolio 2026</p>
+  <p class="hand">merci d'être passé·e par ici ♥</p>
+</footer>
+
+<div class="cursor" aria-hidden="true"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/js/contenu.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

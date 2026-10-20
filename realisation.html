@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Réalisations · Marie Claire Diouf</title>
+<meta name="theme-color" content="#7A1418">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=tanker@400&f[]=gambetta@400,401,500,501&f[]=cabinet-grotesk@400,500,700,800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="univers">
+
+<a class="skip" href="#contenu">Aller au contenu</a>
+<div class="progress" aria-hidden="true"><i></i></div>
+
+<header class="nav">
+  <a class="nav-logo" href="index.html" aria-label="Marie Claire Diouf, accueil"><span>MC</span><i class="dot" aria-hidden="true"></i></a>
+  <a class="nav-back" href="index.html#realisations">← Toutes les réalisations</a>
+  <button class="nav-menu" id="menu-btn" aria-expanded="false" aria-controls="menu">Menu <span class="burger" aria-hidden="true"><i></i><i></i></span></button>
+</header>
+
+<nav class="menu" id="menu" aria-label="Menu principal" hidden>
+  <ol class="menu-list">
+    <li><a href="index.html#apropos"><small>01</small>À propos</a></li>
+    <li><a href="index.html#formation"><small>02</small>Formation</a></li>
+    <li><a href="index.html#experiences"><small>03</small>Expériences</a></li>
+    <li><a href="index.html#realisations"><small>04</small>Réalisations</a></li>
+    <li><a href="index.html#competences"><small>05</small>Compétences</a></li>
+    <li><a href="index.html#avis"><small>06</small>Avis</a></li>
+    <li><a href="index.html#contact"><small>07</small>Contact</a></li>
+  </ol>
+  <div class="menu-side">
+    <p class="menu-label">Réalisations</p>
+    <ul class="menu-sub" id="menu-sub"></ul>
+    <a class="btn btn-light" data-lien="cv" href="#">Télécharger mon CV</a>
+  </div>
+</nav>
+
+<main id="contenu">
+  <section class="u-hero">
+    <div class="wrap">
+      <p class="eyebrow light" id="u-num"></p>
+      <h1 class="u-title" id="u-title"></h1>
+      <p class="u-intro serif" id="u-intro"></p>
+      <ul class="u-index" id="u-index" aria-label="Projets de cette page"></ul>
+    </div>
+  </section>
+
+  <div class="wrap u-projets" id="u-projets"></div>
+
+  <a class="u-next" id="u-next" href="#">
+    <span class="eyebrow light">Univers suivant</span>
+    <span class="u-next-title" id="u-next-title"></span>
+  </a>
+</main>
+
+<footer class="foot">
+  <p>Marie Claire Diouf · Portfolio 2026</p>
+  <p class="hand"><a href="index.html#contact">on s'écrit ?</a></p>
+</footer>
+
+<div class="cursor" aria-hidden="true"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/js/contenu.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
