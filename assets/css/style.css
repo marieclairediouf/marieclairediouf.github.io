@@ -601,3 +601,4 @@ a.une:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
   .f1, .f2 { top: 5%; max-width: 235px; font-size: 12.5px; }
   .f1 { left: 2.5%; } .f2 { right: 2.5%; }
 }
+.u-sel { font-weight: 800; font-size: 12.5px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--rose); margin: 26px 0 10px; }
