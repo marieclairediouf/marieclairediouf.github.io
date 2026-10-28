@@ -43,7 +43,7 @@
   const ptab = $('#tabs');
   ptab.innerHTML = `<a class="pt-logo" href="index.html" aria-label="Marie Claire Diouf, accueil">MC<i class="dot" aria-hidden="true"></i></a>
     <div class="pt-list">${tab('apropos', 'pt-desk')}${SECTIONS.map(id => tab(id)).join('')}<a class="pt-mob" data-lien="cv" href="#">${ico('<path d="M12 4v11M7 10l5 5 5-5M5 20h14"/>')}<span>CV</span></a></div>
-    <a class="pt-cv" data-lien="cv" href="#">Mon CV <span aria-hidden="true">↓</span></a>`;
+    <a class="pt-alt" href="profil.html">Version profil</a><a class="pt-cv" data-lien="cv" href="#">Mon CV <span aria-hidden="true">↓</span></a>`;
   if ($('#intro-tabs')) $('#intro-tabs').innerHTML = SECTIONS.map(id => tab(id)).join('');
   const setTab = id => $$('[data-tab]').forEach(a => a.toggleAttribute('aria-current', a.dataset.tab === id));
   if (page === 'univers') { setTab('realisations'); ptab.classList.add('on'); }
@@ -199,7 +199,8 @@
       <a class="btn btn-light" href="mailto:${esc(L.email)}">${esc(L.email)}</a>
       <a class="btn btn-ghost-light" href="tel:${esc(L.telephone.replace(/\s/g, ''))}">${esc(L.telephone)}</a>
       <a class="btn btn-ghost-light" data-lien="linkedin" href="#">LinkedIn ↗</a>
-      <a class="btn btn-ghost-light" data-lien="cv" href="#">Mon CV ↓</a>`;
+      <a class="btn btn-ghost-light" data-lien="cv" href="#">Mon CV ↓</a>
+      <a class="btn btn-ghost-light" href="profil.html">Mon portfolio en version profil</a>`;
     const log = $('#dm-log');
     const wait = ms => new Promise(r => setTimeout(r, reduce ? 0 : ms));
     const say = (txt, who) => { const p = document.createElement('p'); p.className = 'bubble ' + who; p.textContent = txt; log.appendChild(p); if (anim) G.from(p, { y: 16, opacity: 0, scale: .95, duration: .5, ease: 'back.out(2)' }); };
