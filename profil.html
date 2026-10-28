@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Marie Claire Diouf · Spécialiste communication digitale</title>
+<meta name="description" content="Le portfolio de Marie Claire Diouf, journaliste de formation et spécialiste de la communication digitale : réseaux sociaux, rédaction web, vidéo. Disponible pour un CDI.">
+<meta name="theme-color" content="#7A1418">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/v2.css">
+</head>
+<body>
+
+<header class="top">
+  <a class="top-name" href="profil.html">marieclaire_diouf</a>
+  <nav class="top-links" aria-label="Liens rapides">
+    <a data-lien="cv" href="#">Mon CV</a>
+    <a data-lien="linkedin" href="#">LinkedIn</a>
+    <a class="top-alt" href="index.html">Version immersive</a>
+  </nav>
+</header>
+
+<main class="page">
+
+  <section class="profile" aria-label="Profil">
+    <div class="profile-photo"><img src="img/avatar.jpg" alt="Marie Claire Diouf"></div>
+    <div class="profile-info">
+      <h1 class="profile-name">Marie Claire Diouf</h1>
+      <p class="profile-role">Journaliste – spécialiste communication digitale</p>
+      <ul class="profile-stats" id="stats"></ul>
+      <div class="profile-bio" id="bio"></div>
+      <div class="profile-actions">
+        <a class="btn btn-main" href="mailto:mi.claire2000@gmail.com">M'écrire</a>
+        <a class="btn" data-lien="cv" href="#">Télécharger mon CV</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="brief" aria-labelledby="brief-title">
+    <h2 id="brief-title">En bref</h2>
+    <dl>
+      <div><dt>Je cherche</dt><dd>Un CDI en communication digitale : réseaux sociaux, édition web, création de contenus. Disponible dès maintenant, partout en France.</dd></div>
+      <div><dt>Dernier poste</dt><dd>Chargée de contenus et de communication digitale au Réseau Môm'artre, en alternance (2025-2026).</dd></div>
+      <div><dt>Avant</dt><dd>Journaliste éditrice web à La Croix (stage puis 2 CDD), stages à Nice-Matin, Foot sur 7 et E-média.</dd></div>
+      <div><dt>Formation</dt><dd>Master 2 Management de projets en communication numérique (EJCAM, Aix-Marseille), BUT Journalisme (Cannes).</dd></div>
+      <div><dt>Je sais faire</dt><dd>Gérer des réseaux sociaux, écrire pour le web et le SEO, tourner et monter des vidéos, concevoir des newsletters et des visuels.</dd></div>
+    </dl>
+  </section>
+
+  <ul class="highlights" id="highlights" aria-label="Filtrer mes publications par thème"></ul>
+
+  <nav class="tabs" aria-label="Sections du profil">
+    <button class="tab" data-view="posts" aria-selected="true">Publications</button>
+    <button class="tab" data-view="xp" aria-selected="false">Expériences</button>
+    <button class="tab" data-view="parcours" aria-selected="false">Parcours</button>
+    <button class="tab" data-view="skills" aria-selected="false">Compétences</button>
+  </nav>
+
+  <section class="view" id="view-posts" aria-label="Publications">
+    <p class="view-note" id="grid-note"></p>
+    <ul class="grid" id="grid"></ul>
+  </section>
+
+  <section class="view" id="view-xp" aria-label="Expériences" hidden>
+    <div class="feed" id="feed"></div>
+  </section>
+
+  <section class="view" id="view-parcours" aria-label="Parcours" hidden>
+    <ol class="school" id="school"></ol>
+  </section>
+
+  <section class="view" id="view-skills" aria-label="Compétences" hidden>
+    <div class="skills" id="skills"></div>
+  </section>
+
+  <footer class="foot">
+    <p>Envie d'en parler ? <a href="mailto:mi.claire2000@gmail.com">mi.claire2000@gmail.com</a> · <a href="tel:0745314290">07 45 31 42 90</a></p>
+  </footer>
+</main>
+
+<dialog class="post" id="post" aria-label="Publication">
+  <button class="post-close" id="post-close" aria-label="Fermer">×</button>
+  <button class="post-step prev" id="post-prev" aria-label="Publication précédente">‹</button>
+  <button class="post-step next" id="post-next" aria-label="Publication suivante">›</button>
+  <div class="post-inner" id="post-inner"></div>
+</dialog>
+
+<script src="assets/js/contenu.js"></script>
+<script src="assets/js/v2.js"></script>
+</body>
+</html>
